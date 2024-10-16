@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Storage Integration</title>
+</head>
+<body>
+    <h1>File Management</h1>
+
+    <!-- File Upload to Blob Storage -->
+    <h2>Upload File to Blob Storage</h2>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button type="submit">Upload to Blob Storage</button>
+    </form>
+
+    <!-- List Files in Blob Storage -->
+    <h2>Files in Blob Storage</h2>
+    <ul>
+        {% for blob in blobs %}
+            <li>
+                {{ blob.name }}
+                <a href="/download/{{ blob.name }}">Download</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <!-- File Upload to Azure File Share -->
+    <h2>Upload File to Azure File Share</h2>
+    <form action="/upload-to-file-share" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button type="submit">Upload to File Share</button>
+    </form>
+
+    <!-- List Files in Azure File Share -->
+    <h2>Files in Azure File Share</h2>
+    <ul>
+        {% for file in files %}
+            <li>{{ file }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
