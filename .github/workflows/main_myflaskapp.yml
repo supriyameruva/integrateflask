@@ -28,7 +28,6 @@ jobs:
           source venv/bin/activate
       
       - name: Install dependencies
-        working-directory: flaskwebapp/
         run: pip install -r requirements.txt
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
@@ -66,9 +65,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_C9C246C33DEF4A8BA80FCA6972E2380D }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_0A745EF2D20941758BCAACF75C4509FC }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_A5C02AB01DE34D64AD272524DB6F59F6 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_0B584FB99CA8427EBADAD9637AD75F4D }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_A461B76D7B4E40C79235CA8D92E55E41 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_910D1D6CC11042F8829BD63C0E1CB6B1 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
